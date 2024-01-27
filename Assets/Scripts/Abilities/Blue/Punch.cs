@@ -95,7 +95,7 @@ public class Punch : MonoBehaviour, IAbility
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Target") || obj_current == null) return;
+        if (obj_current == null) return;
 
         Vector3 velocity = GetComponentInParent<HandController>().hand.GetTrackedObjectVelocity().normalized;
         other.GetComponent<IHittable>()?.Hit(new AbilityHit(obj_current, GetColor(), 0, velocity * FACTOR_IMPACT));
