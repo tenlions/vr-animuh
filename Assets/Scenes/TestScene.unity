@@ -594,7 +594,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.6773585, g: 0.8009394, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -6182,7 +6182,7 @@ MonoBehaviour:
     actionPath: /actions/default/in/GrabGrip
     needsReinit: 0
   hand: {fileID: 1772595241}
-  blueFireballPrefab: {fileID: 4875058453993976601, guid: 50349a79688771442901c5e3debec1df, type: 3}
+  blueFireballPrefab: {fileID: 1102859851373689103, guid: eb5fb1be0cfb76b4399d55c399007a8c, type: 3}
   fireballSpawn: {fileID: 1762469213}
   growSpeed: 0.1
 --- !u!135 &114000012342797677
