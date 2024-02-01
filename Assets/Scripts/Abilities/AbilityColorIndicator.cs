@@ -31,13 +31,10 @@ public class AbilityColorIndicator : MonoBehaviour
 
     public void SelectColor(AbilityColor abilityColor)
     {
-        Debug.Log("------------------------------------------------------------------------------");
-        Debug.Log("Selecting color " + abilityColor);
         foreach (ColorIndicator indicator in indicators)
         {
             if (indicator.GetColor() == abilityColor)
             {
-                Debug.Log("Found indicator with color " + abilityColor);
                 currentColor = indicator.Enable();
             }
             else

@@ -24,25 +24,21 @@ public class TestAbilityController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            Debug.Log("LeftArrow pressed");
             abilityColorIndicator.SelectColor(AbilityColor.Red);
         }
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            Debug.Log("UpArrow pressed");
             abilityColorIndicator.SelectColor(AbilityColor.Grey);
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            Debug.Log("RightArrow pressed");
             abilityColorIndicator.SelectColor(AbilityColor.Blue);
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            Debug.Log("DownArrow pressed");
             abilityColorIndicator.SelectColor(AbilityColor.Green);
         }
     }
