@@ -75,12 +75,12 @@ public class Substitution : MonoBehaviour, IAbility
 
     public GameObject GetCurrentObject()
     {
-        return obj_target;
+        throw new System.NotImplementedException();
     }
 
     public float GetDamage()
     {
-        return 0f;
+        throw new System.NotImplementedException();
     }
 
     public float GetPowerCost()

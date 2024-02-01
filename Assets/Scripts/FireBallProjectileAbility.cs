@@ -17,10 +17,6 @@ public class FireBallProjectileAbility : MonoBehaviour
 
     private GameObject currentFireball;
     private bool buttonPressed;
-    private float currentCharge = 0f;
-    private float currentScale = 0f;
-    private float currentVelocity = 5f;
-    private Scaler fireballScaler;
     private Timer fireballTimer;
 
     const float MAX_CHARGE = .1f;
@@ -66,8 +62,6 @@ public class FireBallProjectileAbility : MonoBehaviour
         fireballTimer = new Timer(CHARGE_TIME, this.name);
         fireballTimer.StartTimer();
 
-        currentCharge = 0;
-        currentVelocity = 0;
         currentFireball = GameObject.Instantiate(fireballPrefab, fireballSpawn.position, fireballSpawn.rotation);
         currentFireball.transform.localScale *= INITIAL_SCALE;
         DebuggableScript.DebugLog(this.name, "fireball init scale: " + currentFireball.transform.localScale);
@@ -97,9 +91,7 @@ public class FireBallProjectileAbility : MonoBehaviour
 
         currentFireball.SendMessage("FireProjectile", -fireballSpawn.right, SendMessageOptions.DontRequireReceiver);
 
-        currentVelocity = 0;
         fireballTimer = null;
-        fireballScaler = null;
         currentFireball = null;
     }
 }

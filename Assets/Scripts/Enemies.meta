@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Enemies.meta
 guid: d763d3b18c08fcf47b4eac1c77760a7f
+========
+guid: 39674a042f47d3140a8485145f881a61
+>>>>>>>> parent of d715c08 (Merge branch 'vrf-17-pretty-test-scene' of https://github.com/tenlions/vr-animuh into vrf-17-pretty-test-scene):Assets/Scripts/Debug.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
