@@ -98,7 +98,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 0.7
+    - _Alpha: 0.9
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -123,7 +123,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RippleDensity: 90
+    - _RippleDensity: 200
     - _RippleScale: 0
     - _RippleSize: 5
     - _RippleSpeed: 1
@@ -139,7 +139,7 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _BaseColor: {r: 0, g: 0.6774621, b: 1, a: 1}
+    - _BaseColor: {r: 0.5571051, g: 0.5235849, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _RippleColor: {r: 1.078662, g: 2.467933, b: 2.569396, a: 0}
