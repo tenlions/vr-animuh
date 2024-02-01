@@ -20,7 +20,7 @@ public class Punch : MonoBehaviour, IAbility
     public float growSpeed;
     // the time step for the ability
     public float timeStep = 0;
-    const float FACTOR_IMPACT = 50f;
+    public float FACTOR_IMPACT = 10f;
 
     // the current ability being charged
     private GameObject obj_current;
@@ -42,6 +42,7 @@ public class Punch : MonoBehaviour, IAbility
         if (obj_current != null) return;
         
         obj_current = Instantiate(prefab_ability, transform_spawn.position, transform_spawn.rotation);
+        obj_current.transform.localScale *= scaleInitial;
     }
 
     public void Charge()

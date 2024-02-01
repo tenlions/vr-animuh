@@ -22,4 +22,7 @@ public interface IEnemy
 
     // make the enemy die
     void Die();
+
+    // get the enemy's move speed
+    float GetMoveSpeed();
 }
