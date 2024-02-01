@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.04365709, g: 0.044818856, b: 0.05955075, a: 1}
+  m_IndirectSpecularColor: {r: 0.043578748, g: 0.044726565, b: 0.059461884, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -594,7 +594,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.6773585, g: 0.8009394, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -6028,6 +6028,7 @@ GameObject:
   - component: {fileID: 1852847488}
   - component: {fileID: 1852847487}
   - component: {fileID: 1852847486}
+  - component: {fileID: 1852847491}
   m_Layer: 0
   m_Name: TargetWall
   m_TagString: Target
@@ -6148,6 +6149,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1852847491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852847485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4dc46bf9557a957c937149e32da1b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4000011860342451 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8454072662147976362, guid: 6c01c21b102a4ea42825ac1cf8000994, type: 3}
@@ -6160,7 +6173,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762143275}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bdae41e91f5e9b498b66a84952ad0b3, type: 3}
   m_Name: 
@@ -6169,7 +6182,7 @@ MonoBehaviour:
     actionPath: /actions/default/in/GrabGrip
     needsReinit: 0
   hand: {fileID: 1772595241}
-  blueFireballPrefab: {fileID: 4875058453993976601, guid: 50349a79688771442901c5e3debec1df, type: 3}
+  blueFireballPrefab: {fileID: 1102859851373689103, guid: eb5fb1be0cfb76b4399d55c399007a8c, type: 3}
   fireballSpawn: {fileID: 1762469213}
   growSpeed: 0.1
 --- !u!135 &114000012342797677
@@ -6193,6 +6206,23 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114000012342797678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762143275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fc27d4f87302270aa6912957419add9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger:
+    actionPath: /actions/default/in/GrabGrip
+    needsReinit: 0
+  hand: {fileID: 1772595241}
+  currentColor: 1
 --- !u!1001 &7065323960221053411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6314,6 +6344,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7340956426213209582, guid: 6c01c21b102a4ea42825ac1cf8000994, type: 3}
       insertIndex: -1
       addedObject: {fileID: 114000012342797677}
+    - targetCorrespondingSourceObject: {fileID: 7340956426213209582, guid: 6c01c21b102a4ea42825ac1cf8000994, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 114000012342797678}
   m_SourcePrefab: {fileID: 100100000, guid: 6c01c21b102a4ea42825ac1cf8000994, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

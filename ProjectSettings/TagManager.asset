@@ -8,6 +8,7 @@ TagManager:
   - projectile
   - target practice
   - Target
+  - HandCollider
   layers:
   - Default
   - TransparentFX
