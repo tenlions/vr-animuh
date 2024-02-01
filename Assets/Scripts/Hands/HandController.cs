@@ -36,7 +36,7 @@ namespace Valve.VR.InteractionSystem
 
             abilities = new Dictionary<AbilityColor, HashSet<IAbility>>();
             HashSet<IAbility> blueAbilities = new HashSet<IAbility>();
-            blueAbilities.Add(punchScript);
+            blueAbilities.Add(GetComponent<Punch>());
             abilities.Add(AbilityColor.Blue, blueAbilities);
         }
 
