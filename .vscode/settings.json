@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "vrfamily.sln"
+    "dotnet.defaultSolution": "vr-animuh.sln"
 }
