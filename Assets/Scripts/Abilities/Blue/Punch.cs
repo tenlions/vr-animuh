@@ -62,6 +62,14 @@ public class Punch : MonoBehaviour, IAbility
         obj_current = null;
     }
 
+    public void Hit(IHittable hittable)
+    {
+        if (obj_current == null) return;
+
+        Vector3 velocity = GetComponentInParent<HandController>().hand.GetTrackedObjectVelocity().normalized;
+        hittable.Hit(new AbilityHit(obj_current, GetColor(), 0, velocity * FACTOR_IMPACT));
+    }
+
     public AbilityColor GetColor()
     {
         return AbilityColor.Blue;
