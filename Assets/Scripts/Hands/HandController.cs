@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,12 +11,22 @@ namespace Valve.VR.InteractionSystem
 
         // the abilities the player has, mapped by color
         public Dictionary<AbilityColor, HashSet<IAbility>> abilities;
+        public IAbilityHandler handler_blue;
+        public IAbilityHandler handler_red;
+        public IAbilityHandler handler_yellow;
+        public IAbilityHandler handler_grey;
+        
+        public HandController otherHand;
 
         // input source
         private SteamVR_Input_Sources input = SteamVR_Input_Sources.RightHand;
 
         // the trigger    
         public SteamVR_Action_Boolean trigger;
+
+        // the buttons
+        public SteamVR_Action_Boolean upperButton;
+        public SteamVR_Action_Boolean lowerButton;
 
         // the hand
         public Hand hand;
@@ -25,14 +36,19 @@ namespace Valve.VR.InteractionSystem
 
         // whether the trigger is currently held
         private bool triggerHeld;
+        private bool lowerButtonHeld;
+        private bool upperButtonHeld;
+
+        private HandPose currentPose;
+        private HandPosition currentPosition;
 
         public IAbility punchScript;
+        public AbilityColorSelector abilityColorSelector;
 
         // Start is called before the first frame update
         void Start()
         {
-            trigger.AddOnStateDownListener(OnTriggerPressed, input);
-            trigger.AddOnStateUpListener(OnTriggerReleased, input);
+            RegisterListeners();
 
             abilities = new Dictionary<AbilityColor, HashSet<IAbility>>();
             HashSet<IAbility> blueAbilities = new HashSet<IAbility>();
@@ -49,20 +65,86 @@ namespace Valve.VR.InteractionSystem
             }
         }
 
-        private void OnTriggerPressed(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+        void OnActionPressed(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
         {
             // only react to right hand
             if (!handEqualsFromSource(fromSource)) return;
-            triggerHeld = true;
-
-            CastAbilities(currentColor);
+            
+            if (fromAction == upperButton)
+            {
+                upperButtonHeld = true;
+            }
+            else if (fromAction == lowerButton)
+            {
+                lowerButtonHeld = true;
+            }
+            else if (fromAction == trigger)
+            {
+                triggerHeld = true;
+                GetAbilityHandler().HandleTriggerDown(GetCurrentState(), otherHand.GetCurrentState());
+            }
         }
 
-        private void OnTriggerReleased(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+        void OnActionReleased(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
         {
             // only react to right hand
             if (!handEqualsFromSource(fromSource)) return;
-            triggerHeld = false;
+
+            if (fromAction == upperButton)
+            {
+                upperButtonHeld = false;
+            }
+            else if (fromAction == lowerButton)
+            {
+                lowerButtonHeld = false;
+            }
+            else if (fromAction == trigger)
+            {
+                triggerHeld = false;
+                GetAbilityHandler().HandleTriggerUp(GetCurrentState(), otherHand.GetCurrentState());
+            }
+        }
+
+        void OnColorSelectButtonReleased(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+        {
+            // only react to right hand
+            if (!handEqualsFromSource(fromSource)) return;
+
+            if (fromAction == upperButton)
+            {
+                currentColor = abilityColorSelector.SelectColor(hand);
+                upperButtonHeld = false;
+            }
+        }
+
+        public HandPose GetCurrentPose()
+        {
+            return currentPose;
+        }
+
+        public HandPosition GetCurrentPosition()
+        {
+            return currentPosition;
+        }
+
+        public HandState GetCurrentState()
+        {
+            return new HandState(currentPose, currentPosition, Time.time);
+        }
+
+        private IAbilityHandler GetAbilityHandler()
+        {
+            switch (currentColor)
+            {
+                case AbilityColor.Blue:
+                    return handler_blue;
+                case AbilityColor.Red:
+                    return handler_red;
+                case AbilityColor.Yellow:
+                    return handler_yellow;
+                default:
+                    return handler_grey;
+            }
         }
 
         private bool handEqualsFromSource(SteamVR_Input_Sources fromSource)
@@ -107,6 +189,20 @@ namespace Valve.VR.InteractionSystem
             {
                 return new HashSet<IAbility>();
             }
+        }
+
+        // Registers the up and down state listeners for the trigger and buttons
+        private void RegisterListeners()
+        {
+            trigger.AddOnStateDownListener(OnActionPressed, input);
+            trigger.AddOnStateUpListener(OnActionReleased, input);
+
+            upperButton.AddOnStateDownListener(OnActionPressed, input);
+            upperButton.AddOnStateUpListener(OnActionReleased, input);
+            upperButton.AddOnStateUpListener(OnColorSelectButtonReleased, input);
+
+            lowerButton.AddOnStateDownListener(OnActionPressed, input);
+            lowerButton.AddOnStateUpListener(OnActionReleased, input);
         }
     }
 

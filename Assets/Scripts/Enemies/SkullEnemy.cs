@@ -18,6 +18,7 @@ public class SkullEnemy : MonoBehaviour, IEnemy, IHittable
     private bool wasPunched;
     private Transform transform_player;
     private Rigidbody rigidbody_self;
+    public GameObject prefab_deathEffect;
 
     
 
@@ -34,7 +35,10 @@ public class SkullEnemy : MonoBehaviour, IEnemy, IHittable
     // Update is called once per frame
     void Update()
     {
-        if ((transform.position - transform_player.position).magnitude <= .3f) Destroy(gameObject, 1f);
+        if ((transform.position - transform_player.position).magnitude <= .5f) 
+        {
+            Die();
+        }
 
         // if we were punched, do nothing
         if (wasPunched) return;
@@ -67,7 +71,8 @@ public class SkullEnemy : MonoBehaviour, IEnemy, IHittable
 
     public void Die()
     {
-        return;
+        PlayDeathEffect();
+        Destroy(gameObject);
     }
 
     public float GetBaseHealth()
@@ -97,6 +102,12 @@ public class SkullEnemy : MonoBehaviour, IEnemy, IHittable
     public float GetMoveSpeed()
     {
         return MOVE_SPEED;
+    }
+
+    private void PlayDeathEffect()
+    {
+        GameObject deathEffect = Instantiate(prefab_deathEffect, transform.position, Quaternion.identity);
+        deathEffect.transform.localScale *= .2f;
     }
 
     public void Hit(AbilityHit hit)
