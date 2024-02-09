@@ -110,7 +110,7 @@ public class SkullEnemy : MonoBehaviour, IEnemy, IHittable
         deathEffect.transform.localScale *= .2f;
     }
 
-    public void Hit(AbilityHit hit)
+    public void TakeHit(AbilityHit hit)
     {
         wasPunched = true;
         rigidbody_self.useGravity = true;

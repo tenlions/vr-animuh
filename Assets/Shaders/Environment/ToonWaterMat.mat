@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ToonWaterMat
-  m_Shader: {fileID: -6465566751694194690, guid: 9c0957195ef8be449821e8c4a7c764ef, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 5f056067f2598e6408c108e8af2631a1, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -123,9 +123,9 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RippleDensity: 600
+    - _RippleDensity: 1000
     - _RippleScale: 1
-    - _RippleSize: 5
+    - _RippleSize: 7
     - _RippleSpeed: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
@@ -133,14 +133,15 @@ Material:
     - _SrcBlend: 5
     - _SrcBlendAlpha: 1
     - _Surface: 1
+    - _WaveHeight: 1
     - _WaveScale: 5
-    - _WaveSpeed: 0.1
+    - _WaveSpeed: 0.05
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _BaseColor: {r: 0.5571051, g: 0.5235849, b: 1, a: 1}
+    - _BaseColor: {r: 0.39159977, g: 0.35280162, b: 0.93962264, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _RippleColor: {r: 1.078662, g: 2.467933, b: 2.569396, a: 0}
