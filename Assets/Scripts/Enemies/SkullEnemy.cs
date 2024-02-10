@@ -35,6 +35,7 @@ public class SkullEnemy : MonoBehaviour, IEnemy, IHittable
     // Update is called once per frame
     void Update()
     {
+
         if ((transform.position - transform_player.position).magnitude <= .5f) 
         {
             Die();

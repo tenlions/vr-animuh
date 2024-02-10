@@ -45,6 +45,8 @@ namespace Valve.VR.InteractionSystem
         public IAbility punchScript;
         public AbilityColorSelector abilityColorSelector;
 
+        public GameObject obj_abilityColorIndicator;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -113,6 +115,7 @@ namespace Valve.VR.InteractionSystem
             if (fromAction == upperButton)
             {
                 currentColor = abilityColorSelector.SelectColor(hand);
+                obj_abilityColorIndicator.GetComponent<AbilityColorIndicator>().SelectColor(currentColor);
                 upperButtonHeld = false;
             }
         }
