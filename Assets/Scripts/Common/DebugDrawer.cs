@@ -29,6 +29,7 @@ public class DebugDrawer : MonoBehaviour
         if (drawVelocity) DrawVelocity(GetRigidbody());
     }
 
+    // Draws the local coordinates of the GameObject
     private void DrawLocalCoords()
     {
         // draw x axis with arrow
@@ -41,6 +42,7 @@ public class DebugDrawer : MonoBehaviour
         DrawArrow(transform, transform.forward, color_z);
     }
 
+    // Draws an arrow from the origin in the direction, with the specified color
     private void DrawArrow(Transform origin, Vector3 direction, Color color)
     {
         Gizmos.color = color;
@@ -48,6 +50,7 @@ public class DebugDrawer : MonoBehaviour
         Cone.DrawCone(origin.position + (arrowScale * direction), direction, 0.1f);
     }
 
+    // Draws the velocity of the Rigidbody, if it exists
     private void DrawVelocity(Rigidbody rb)
     {
         if (rb == null) return;
@@ -60,6 +63,7 @@ public class DebugDrawer : MonoBehaviour
         Cone.DrawCone(rb.transform.position + rb.velocity, rb.velocity, 0.1f);
     }
 
+    // Retrieves the Rigidbody component from the GameObject, or its parent, or its children. Returns null if none is found.
     private Rigidbody GetRigidbody()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
