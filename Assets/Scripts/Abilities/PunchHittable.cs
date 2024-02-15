@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PunchHittable : MonoBehaviour, IHittable
 {
-    public void Hit(AbilityHit hit)
+    public void TakeHit(AbilityHit hit)
     {
         GetComponent<Rigidbody>().AddForce(hit.GetVelocity(), ForceMode.Impulse);
     }

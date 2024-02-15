@@ -7,7 +7,7 @@ public class SkullSpawner : MonoBehaviour
     [SerializeField]
     private const float EJECT_FORCE = 8f;
     [SerializeField]
-    private const float SPAWN_INTERVAL = 10f;
+    private const float SPAWN_INTERVAL = 20f;
     [SerializeField]
     private const float START_COOLDOWN = 2f;
     private float currentCooldown;
