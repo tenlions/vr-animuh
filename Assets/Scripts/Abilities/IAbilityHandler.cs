@@ -10,4 +10,7 @@ public interface IAbilityHandler
     void HandleTriggerDown(HandState handState, HandState otherHandState);
 
     void HandleTriggerUp(HandState handState, HandState otherHandState);
+
+    // handles the calling hand's collision with a given other collider
+    void HandleCollision(Collider other);
 }

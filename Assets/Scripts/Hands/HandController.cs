@@ -11,7 +11,7 @@ namespace Valve.VR.InteractionSystem
 
         // the abilities the player has, mapped by color
         public Dictionary<AbilityColor, HashSet<IAbility>> abilities;
-        public IAbilityHandler handler_blue;
+        public BlueAbilityHandler handler_blue;
         public IAbilityHandler handler_red;
         public IAbilityHandler handler_yellow;
         public IAbilityHandler handler_grey;
@@ -19,7 +19,7 @@ namespace Valve.VR.InteractionSystem
         public HandController otherHand;
 
         // input source
-        private SteamVR_Input_Sources input = SteamVR_Input_Sources.RightHand;
+        public SteamVR_Input_Sources input;
 
         // the trigger    
         public SteamVR_Action_Boolean trigger;
@@ -44,6 +44,8 @@ namespace Valve.VR.InteractionSystem
 
         public IAbility punchScript;
         public AbilityColorSelector abilityColorSelector;
+
+        public GameObject obj_abilityColorIndicator;
 
         // Start is called before the first frame update
         void Start()
@@ -113,6 +115,7 @@ namespace Valve.VR.InteractionSystem
             if (fromAction == upperButton)
             {
                 currentColor = abilityColorSelector.SelectColor(hand);
+                obj_abilityColorIndicator.GetComponent<AbilityColorIndicator>().SelectColor(currentColor);
                 upperButtonHeld = false;
             }
         }
@@ -130,6 +133,13 @@ namespace Valve.VR.InteractionSystem
         public HandState GetCurrentState()
         {
             return new HandState(currentPose, currentPosition, Time.time);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.GetComponent<IHittable>() == null) return;
+
+            GetAbilityHandler().HandleCollision(other);
         }
 
         private IAbilityHandler GetAbilityHandler()

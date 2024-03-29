@@ -6,5 +6,5 @@ using UnityEngine;
 public interface IHittable
 {
     // called when the object is hit by an ability
-    public void Hit(AbilityHit hit);
+    public void TakeHit(AbilityHit hit);
 }
