@@ -72,11 +72,7 @@ namespace Valve.VR.InteractionSystem
             // only react to right hand
             if (!handEqualsFromSource(fromSource)) return;
             
-            if (fromAction == upperButton)
-            {
-                upperButtonHeld = true;
-            }
-            else if (fromAction == lowerButton)
+            if (fromAction == lowerButton)
             {
                 lowerButtonHeld = true;
             }
@@ -104,6 +100,18 @@ namespace Valve.VR.InteractionSystem
             {
                 triggerHeld = false;
                 GetAbilityHandler().HandleTriggerUp(GetCurrentState(), otherHand.GetCurrentState());
+            }
+        }
+
+        void OnColorSelectButtonPressed(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+        {
+            // only react to right hand
+            if (!handEqualsFromSource(fromSource)) return;
+
+            if (fromAction == upperButton)
+            {
+                abilityColorSelector.SetForwardPressed(hand);
+                upperButtonHeld = true;
             }
         }
 
@@ -208,6 +216,7 @@ namespace Valve.VR.InteractionSystem
             trigger.AddOnStateUpListener(OnActionReleased, input);
 
             upperButton.AddOnStateDownListener(OnActionPressed, input);
+            upperButton.AddOnStateDownListener(OnColorSelectButtonPressed, input);
             upperButton.AddOnStateUpListener(OnActionReleased, input);
             upperButton.AddOnStateUpListener(OnColorSelectButtonReleased, input);
 
