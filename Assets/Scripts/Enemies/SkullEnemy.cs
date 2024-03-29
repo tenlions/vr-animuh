@@ -116,5 +116,13 @@ public class SkullEnemy : MonoBehaviour, IEnemy, IHittable
         wasPunched = true;
         rigidbody_self.useGravity = true;
         rigidbody_self.AddForce(hit.GetVelocity(), ForceMode.Impulse);
+        if (hit.GetSpeed() == AbilityHit.AbilitySpeed.INSTANT)
+        {
+            Die();
+        } 
+        else
+        {
+            Invoke("Die", 5f);
+        }
     }
 }

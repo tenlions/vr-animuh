@@ -35,9 +35,12 @@ public class ShotProjectile : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Target"))
         {
-            GameObject hit = Instantiate(hitPrefab, transform.position, Quaternion.FromToRotation(Vector3.forward, direction));
-            Destroy(hit, 2.5f);
-            Destroy(gameObject);
+            IHittable hittable = other.GetComponent<IHittable>();
+            if (hittable != null)
+            {
+                GameObject hit = Instantiate(hitPrefab, transform.position, Quaternion.FromToRotation(Vector3.forward, direction));
+                hittable.TakeHit(new AbilityHit(hitPrefab, AbilityColor.Blue, 100f, Vector3.zero, AbilityHit.AbilitySpeed.INSTANT));
+            }
         }
     }
 }

@@ -16,9 +16,13 @@ public class Locomotion : MonoBehaviour
 
     public float movementSpeed = 2.0f;
 
-    public float dashPower = 30f;
+    public float dashPower = 10f;
     
     private Vector3 movementDir;
+
+    private static readonly Vector3 VEC_NO_Y = new Vector3(1,0,1);
+
+
     
         
 
@@ -32,11 +36,14 @@ public class Locomotion : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
+        
         movementDir = Player.instance.hmdTransform.TransformDirection(new Vector3(locomotionInput.axis.x, 0, locomotionInput.axis.y));
+        movementDir.y = 0;
         
         if (dashInput.stateDown)
         {
-            playerBody.AddForce(movementDir.normalized * dashPower,ForceMode.VelocityChange);
+            playerBody.AddForce(movementDir * dashPower, ForceMode.VelocityChange);
             Debug.Log("Dash");
         }
 

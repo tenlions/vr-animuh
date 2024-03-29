@@ -14,14 +14,14 @@ namespace Valve.VR
     using UnityEngine;
     
     
-    public class SteamVR_Input_ActionSet_VRFamily : Valve.VR.SteamVR_ActionSet
+    public class SteamVR_Input_ActionSet_VrFamily : Valve.VR.SteamVR_ActionSet
     {
         
         public virtual SteamVR_Action_Boolean Trigger
         {
             get
             {
-                return SteamVR_Actions.vRFamily_Trigger;
+                return SteamVR_Actions.vrFamily_Trigger;
             }
         }
         
@@ -29,7 +29,7 @@ namespace Valve.VR
         {
             get
             {
-                return SteamVR_Actions.vRFamily_UpperButton;
+                return SteamVR_Actions.vrFamily_UpperButton;
             }
         }
         
@@ -37,31 +37,39 @@ namespace Valve.VR
         {
             get
             {
-                return SteamVR_Actions.vRFamily_LowerButton;
+                return SteamVR_Actions.vrFamily_LowerButton;
             }
         }
         
-        public virtual SteamVR_Action_Boolean Teleport
+        public virtual SteamVR_Action_Vector2 Move
         {
             get
             {
-                return SteamVR_Actions.vRFamily_Teleport;
+                return SteamVR_Actions.vrFamily_Move;
             }
         }
         
-        public virtual SteamVR_Action_Boolean SnapTurnLeft
+        public virtual SteamVR_Action_Boolean Dash
         {
             get
             {
-                return SteamVR_Actions.vRFamily_SnapTurnLeft;
+                return SteamVR_Actions.vrFamily_Dash;
             }
         }
         
-        public virtual SteamVR_Action_Boolean SnapTurnRight
+        public virtual SteamVR_Action_Boolean SnapTurn_Left
         {
             get
             {
-                return SteamVR_Actions.vRFamily_SnapTurnRight;
+                return SteamVR_Actions.vrFamily_SnapTurn_Left;
+            }
+        }
+        
+        public virtual SteamVR_Action_Boolean SnapTurn_Right
+        {
+            get
+            {
+                return SteamVR_Actions.vrFamily_SnapTurn_Right;
             }
         }
     }

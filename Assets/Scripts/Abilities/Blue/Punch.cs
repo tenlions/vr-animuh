@@ -40,7 +40,7 @@ public class Punch : MonoBehaviour, IAbility
     public void Hit(IHittable hittable)
     {
         Vector3 velocity = GetComponentInParent<HandController>().hand.GetTrackedObjectVelocity().normalized;
-        hittable.TakeHit(new AbilityHit(prefab_impact, GetColor(), 0, velocity * FACTOR_IMPACT));
+        hittable.TakeHit(new AbilityHit(prefab_impact, GetColor(), 0, velocity * FACTOR_IMPACT, AbilityHit.AbilitySpeed.DELAYED));
     }
 
     public AbilityColor GetColor()

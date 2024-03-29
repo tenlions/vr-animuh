@@ -11,6 +11,7 @@ public class AbilityHit
     private AbilityColor color;
     private float damage;
     private Vector3 velocity;
+    private AbilitySpeed speed;
 
     public AbilityHit(GameObject prefab_impact, AbilityColor color, float damage, Vector3 velocity)
     {
@@ -18,6 +19,16 @@ public class AbilityHit
         this.color = color;
         this.damage = damage;
         this.velocity = velocity;
+        this.speed = AbilitySpeed.INSTANT;
+    }
+
+    public AbilityHit(GameObject prefab_impact, AbilityColor color, float damage, Vector3 velocity, AbilitySpeed speed)
+    {
+        this.prefab_impact = prefab_impact;
+        this.color = color;
+        this.damage = damage;
+        this.velocity = velocity;
+        this.speed = speed;
     }
 
     public GameObject GetImpactPrefab()
@@ -38,5 +49,16 @@ public class AbilityHit
     public Vector3 GetVelocity()
     {
         return velocity;
+    }
+
+    public AbilitySpeed GetSpeed()
+    {
+        return speed;
+    }
+
+    public enum AbilitySpeed
+    {
+        INSTANT,
+        DELAYED
     }
 }

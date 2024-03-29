@@ -15,8 +15,9 @@ public class BlueAbilityHandler : MonoBehaviour, IAbilityHandler
     public Shot ability_shot;
 
     public GameObject prefab_projectile;
+    public GameObject obj_projectileSpawn;
     private GameObject obj_currentProjectile;
-    private GameObject obj_aimPoint;
+    public GameObject obj_aimPoint;
 
     private bool triggerHeld;
 
@@ -79,7 +80,7 @@ public class BlueAbilityHandler : MonoBehaviour, IAbilityHandler
     {
         if (obj_currentProjectile != null) return;
 
-        obj_currentProjectile = GameObject.Instantiate(prefab_projectile, transform.position, transform.rotation);
+        obj_currentProjectile = GameObject.Instantiate(prefab_projectile, obj_projectileSpawn.transform.position, obj_projectileSpawn.transform.rotation);
         obj_currentProjectile.transform.localScale *= SCALE_INITIAL;
     }
 
@@ -87,7 +88,7 @@ public class BlueAbilityHandler : MonoBehaviour, IAbilityHandler
     {
         if (obj_currentProjectile == null) return;
 
-        obj_currentProjectile.transform.position = transform.position;
+        obj_currentProjectile.transform.position = obj_projectileSpawn.transform.position;
         if (obj_currentProjectile.transform.localScale.x < SCALE_MAX)
         {
             obj_currentProjectile.transform.localScale += Vector3.one * (projectileGrowSpeed * Time.deltaTime);
@@ -105,6 +106,7 @@ public class BlueAbilityHandler : MonoBehaviour, IAbilityHandler
         obj_currentProjectile.transform.rotation = Quaternion.identity;
         obj_currentProjectile.SendMessage("FireProjectile", shotDirection, SendMessageOptions.DontRequireReceiver);
 
+        Destroy(obj_currentProjectile, 20f);
         obj_currentProjectile = null;
     }
 }

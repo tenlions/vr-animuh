@@ -58,6 +58,18 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/default/in/UpperButton",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/default/in/Trigger",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/default/in/LowerButton",
+      "type": "boolean"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
@@ -89,6 +101,39 @@
       "name": "/actions/mixedreality/in/ExternalCamera",
       "type": "pose",
       "requirement": "optional"
+    },
+    {
+      "name": "/actions/VrFamily/in/Trigger",
+      "type": "boolean",
+      "requirement": "mandatory"
+    },
+    {
+      "name": "/actions/VrFamily/in/UpperButton",
+      "type": "boolean",
+      "requirement": "mandatory"
+    },
+    {
+      "name": "/actions/VrFamily/in/LowerButton",
+      "type": "boolean",
+      "requirement": "mandatory"
+    },
+    {
+      "name": "/actions/VrFamily/in/Move",
+      "type": "vector2",
+      "requirement": "mandatory"
+    },
+    {
+      "name": "/actions/VrFamily/in/Dash",
+      "type": "boolean",
+      "requirement": "mandatory"
+    },
+    {
+      "name": "/actions/VrFamily/in/SnapTurn_Left",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/VrFamily/in/SnapTurn_Right",
+      "type": "boolean"
     }
   ],
   "action_sets": [
@@ -109,7 +154,7 @@
       "usage": "single"
     },
     {
-      "name": "/actions/NewSet",
+      "name": "/actions/VrFamily",
       "usage": "single"
     }
   ],
