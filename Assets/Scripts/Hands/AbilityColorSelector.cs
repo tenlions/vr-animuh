@@ -15,7 +15,7 @@ public class AbilityColorSelector : MonoBehaviour
     private static readonly Vector3 V3_DEFAULT = new Vector3(666, 666, 666);
     private Vector3 point_forward_pressed = V3_DEFAULT;
     private const int IDX_X = 0;
-    private const int IDX_Z = 2;
+    private const int IDX_Y = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +43,7 @@ public class AbilityColorSelector : MonoBehaviour
         // if the highest value is on the x component and we are the left hand, invert value
         if (hand.handType == Valve.VR.SteamVR_Input_Sources.LeftHand && highestIndex == IDX_X) highestValue = -highestValue;
 
-        Debug.Log("highest comp: " + (highestIndex == IDX_X ? "X" : "Z"));
+        Debug.Log("highest comp: " + (highestIndex == IDX_X ? "X" : "Y"));
         Debug.Log("highest value: " + highestValue);
 
         // reset the pressed point
@@ -55,7 +55,7 @@ public class AbilityColorSelector : MonoBehaviour
             case IDX_X:
                 if (highestValue > 0) return AbilityColor.Red; // inward
                 else return AbilityColor.Grey; // outward
-            case IDX_Z:
+            case IDX_Y:
                 if (highestValue > 0) return AbilityColor.Green;
                 else return AbilityColor.Blue;
             default:
@@ -79,7 +79,7 @@ public class AbilityColorSelector : MonoBehaviour
         float absX = Mathf.Abs(vector.x);
         float absZ = Mathf.Abs(vector.z);
 
-        return absX > absZ ? IDX_X : IDX_Z;
+        return absX > absZ ? IDX_X : IDX_Y;
     }
 
     // Returns the current ability color
