@@ -8,6 +8,7 @@ public class DebugDrawer : MonoBehaviour
     public bool drawVelocity = true;
     public bool invertVelocity = false;
     public bool drawLocalCoords = true;
+    public bool drawHandForward = false;
 
     [Range(0.1f, 5.0f)]
     public float arrowScale = 1.0f;
@@ -15,6 +16,7 @@ public class DebugDrawer : MonoBehaviour
     private Color color_x = Color.red;
     private Color color_y = Color.green;
     private Color color_z = Color.blue;
+    private Color color_handForward = Color.cyan;
     private Color color_velocity = Color.yellow;
 
     // Start is called before the first frame update
@@ -27,6 +29,11 @@ public class DebugDrawer : MonoBehaviour
     {
         if (drawLocalCoords) DrawLocalCoords();
         if (drawVelocity) DrawVelocity(GetRigidbody());
+
+        if (drawHandForward)
+        {
+            DrawArrow(transform, Quaternion.AngleAxis(45, transform.right) * transform.forward, color_handForward);
+        }
     }
 
     // Draws the local coordinates of the GameObject
