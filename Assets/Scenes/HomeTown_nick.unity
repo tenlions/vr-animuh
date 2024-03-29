@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0660992, g: 0.06103391, b: 0.22322896, a: 1}
+  m_IndirectSpecularColor: {r: 0.06599894, g: 0.0609401, b: 0.22325867, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &130880389 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6760848237144124953, guid: a09ef19d69c43a44782a717b6973c33e, type: 3}
-  m_PrefabInstance: {fileID: 1710758522}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &130880390 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3665847672109870545, guid: a09ef19d69c43a44782a717b6973c33e, type: 3}
@@ -2696,9 +2691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc27d4f87302270aa6912957419add9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handler_blue: {fileID: 1839446184}
   otherHand: {fileID: 114000012342797678}
-  input: 1
   trigger:
     actionPath: /actions/VRFamily/in/Trigger
     needsReinit: 0
@@ -2711,7 +2704,6 @@ MonoBehaviour:
   hand: {fileID: 1839446182}
   currentColor: 4
   abilityColorSelector: {fileID: 1839446187}
-  obj_abilityColorIndicator: {fileID: 0}
 --- !u!114 &1839446184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2752,8 +2744,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 670ad5d114810339e92983dd0fe5edad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefab_ability: {fileID: 0}
+  transform_spawn: {fileID: 0}
+  scaleMax: 0
+  scaleInitial: 0
+  chargeTime: 0
+  growSpeed: 0
   timeStep: 0
-  prefab_impact: {fileID: 3759187107831666641, guid: 99cfb765ce7092d438966670ec68ea4d, type: 3}
 --- !u!114 &1839446187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2800,9 +2797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc27d4f87302270aa6912957419add9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handler_blue: {fileID: 114000012342797686}
   otherHand: {fileID: 1839446183}
-  input: 2
   trigger:
     actionPath: /actions/VRFamily/in/Trigger
     needsReinit: 0
@@ -2815,7 +2810,6 @@ MonoBehaviour:
   hand: {fileID: 1772595241}
   currentColor: 1
   abilityColorSelector: {fileID: 114000012342797687}
-  obj_abilityColorIndicator: {fileID: 130880389}
 --- !u!114 &114000012342797684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2828,8 +2822,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 670ad5d114810339e92983dd0fe5edad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefab_ability: {fileID: 0}
+  transform_spawn: {fileID: 0}
+  scaleMax: 0
+  scaleInitial: 0
+  chargeTime: 0
+  growSpeed: 0
   timeStep: 0
-  prefab_impact: {fileID: 3759187107831666641, guid: 99cfb765ce7092d438966670ec68ea4d, type: 3}
 --- !u!114 &114000012342797685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2891,10 +2890,10 @@ MonoBehaviour:
   rotateLeftFX: {fileID: 0}
   snapLeftAction:
     actionPath: /actions/VRFamily/in/SnapTurnLeft
-    needsReinit: 0
+    needsReinit: 1
   snapRightAction:
     actionPath: /actions/VRFamily/in/SnapTurnRight
-    needsReinit: 0
+    needsReinit: 1
   fadeScreen: 1
   fadeTime: 0.1
   screenFadeColor: {r: 0, g: 0, b: 0, a: 1}
