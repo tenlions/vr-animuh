@@ -36,7 +36,8 @@ public class AbilityColorSelector : MonoBehaviour
         if (point_forward_pressed == V3_DEFAULT) return currentColor;
         
         // get the vector between the pressed and released point
-        Vector3 between = point_forward_pressed - GetHandForward(hand);
+        Vector3 point_forward_released = GetHandForward(hand);
+        Vector3 between = point_forward_pressed - point_forward_released;
         int highestIndex = GetHighestValueIndex(between);
         float highestValue = between[highestIndex];
 
@@ -45,6 +46,8 @@ public class AbilityColorSelector : MonoBehaviour
 
         Debug.Log("highest comp: " + (highestIndex == IDX_X ? "X" : "Y"));
         Debug.Log("highest value: " + highestValue);
+        Debug.Log("Pressed: " + point_forward_pressed);
+        Debug.Log("Released: " + point_forward_released);
 
         // reset the pressed point
         point_forward_pressed = V3_DEFAULT;
