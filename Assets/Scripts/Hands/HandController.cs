@@ -75,6 +75,8 @@ namespace Valve.VR.InteractionSystem
             if (fromAction == lowerButton)
             {
                 lowerButtonHeld = true;
+                currentPose = HandPose.AIM;
+                currentPosition = HandPosition.AIM;
             }
             else if (fromAction == trigger)
             {
@@ -95,6 +97,7 @@ namespace Valve.VR.InteractionSystem
             else if (fromAction == lowerButton)
             {
                 lowerButtonHeld = false;
+                currentPose = HandPose.OPEN;
             }
             else if (fromAction == trigger)
             {

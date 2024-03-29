@@ -7,7 +7,7 @@ public class Punch : MonoBehaviour, IAbility
 {
     // the time step for the ability
     public float timeStep = 0;
-    const float FACTOR_IMPACT = 50f;
+    const float FACTOR_IMPACT = 20f;
     public GameObject prefab_impact;
     
     // Start is called before the first frame update

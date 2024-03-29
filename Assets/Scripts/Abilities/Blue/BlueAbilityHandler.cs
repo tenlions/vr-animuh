@@ -59,6 +59,10 @@ public class BlueAbilityHandler : MonoBehaviour, IAbilityHandler
         {
             ShootProjectile();
         }
+        else
+        {
+            Destroy(obj_currentProjectile);
+        }
     }
 
     public void HandleCollision(Collider other)
