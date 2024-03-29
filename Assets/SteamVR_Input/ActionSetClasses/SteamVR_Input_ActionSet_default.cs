@@ -105,11 +105,19 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Boolean Trigger
+        public virtual SteamVR_Action_Vector2 Locomotion
         {
             get
             {
-                return SteamVR_Actions.default_Trigger;
+                return SteamVR_Actions.default_Locomotion;
+            }
+        }
+        
+        public virtual SteamVR_Action_Boolean Dash
+        {
+            get
+            {
+                return SteamVR_Actions.default_Dash;
             }
         }
         
